@@ -27,12 +27,15 @@ On macOS/Linux activate with `source .venv/bin/activate`. Open http://localhost:
 
 **Dataset: [Google Drive folder - all ten GeoTIFF inputs](https://drive.google.com/drive/folders/1-mpfiI23HzrTgpsQpVCW8KUmGytMLkH-).** All input imagery is on Drive; GitHub contains the code, notebooks, saved outputs, and checksums.
 
-Download the entire Drive folder (Drive may package it as a ZIP). Extract it, create a folder named `colab_test_data` inside this cloned repository, and put all ten `.TIF` files directly inside it. Avoid an extra nested folder. Keep the original filenames. Total input size is **767,745,918 bytes**, about 768 MB. Drive access must be granted to your Google account by the owner if the folder is restricted.
+Download the entire Drive folder (Drive may package it as a ZIP). Extract it, create a folder named `colab_test_data` inside this cloned repository, and put all downloaded `.TIF` files and `.TIF.partNN` transfer parts directly inside it. Avoid an extra nested folder. Keep the original filenames. The eight directly uploaded TIFFs and the parts for the final two bands together contain all ten original inputs. Total input size is **767,745,918 bytes**, about 768 MB. Drive access must be granted to your Google account by the owner if the folder is restricted.
 
 ```powershell
+python prepare_data.py
 python verify_data.py
 python verify_landsat_app.py
 ```
+
+`prepare_data.py` joins the final two bands from their numbered 20 MB transfer parts and verifies their original hashes. Parts are retained after assembly. These parts are needed because the connector repeatedly timed out on the complete files. You only need to run this preparation once.
 
 `verify_data.py` checks every file against SHA-256 hashes and sizes. `verify_landsat_app.py` reruns the app pipeline and compares common valid pixels, seed counts, class counts, regression coefficients, and possible-change metrics with the saved baseline. Numerical comparisons allow small floating-point differences. Full raster processing takes time and several GB of available memory.
 
@@ -63,6 +66,8 @@ import os
 drive.mount('/content/drive')
 os.environ['LANDSAT_DATA_DIR'] = '/content/drive/MyDrive/Landsat Change Explorer - Reproduction Dataset'
 ```
+
+If your folder contains transfer parts, assemble them first: clone this public repository in Colab, put the Drive files/parts into its colab_test_data folder, and run `!python prepare_data.py` from that repository. Then set LANDSAT_DATA_DIR to that assembled folder. Alternatively, assemble locally and upload the restored TIFFs to your own Drive.
 
 Use the actual location in your own Drive. For a shared folder, add a shortcut to My Drive or copy the files into your own data folder, then adjust the path. Run cells in order. Colab's changing runtime is not an exactly pinned replica of the tested local environment.
 
@@ -131,6 +136,7 @@ These are scene-specific demonstration results. They do not establish that 5.24%
 | build_saved_notebook_history.py | Execute corrected notebook analysis/plotting cells and regenerate History figures |
 | terminal_demo.py | Present saved results in a terminal menu |
 | visualize_landsat.py | Separate native-resolution natural-colour visualization; run with --data-dir colab_test_data --no-show |
+| prepare_data.py | Restore the two split-band transfers and verify inputs |
 | verify_data.py / data_manifest.json | Check exact input sizes and SHA-256 hashes |
 | verify_landsat_app.py | Rerun analysis and compare against saved metrics |
 | tests/test_landsat_app.py | Synthetic input-validation and session tests |
@@ -146,7 +152,7 @@ The prepared package passed all **15 existing tests**, input checksums for all t
 python -m unittest discover -s tests -q
 ```
 
-If data is missing, check that all ten files are directly inside colab_test_data. If a checksum fails, download that file again. If a dependency cannot install, use Python 3.14 in a fresh virtual environment and the supplied requirements. If PowerShell blocks activation, run `.venv\Scripts\python.exe -m pip install -r requirements.txt` and `.venv\Scripts\python.exe -m streamlit run app.py` directly. If port 8501 is occupied, add `--server.port 8502`. Restart interrupted processing after ensuring sufficient memory is available.
+If data is missing, check that the downloaded files and numbered parts are directly inside colab_test_data, then run python prepare_data.py. If a checksum fails, download that file again. If a dependency cannot install, use Python 3.14 in a fresh virtual environment and the supplied requirements. If PowerShell blocks activation, run `.venv\Scripts\python.exe -m pip install -r requirements.txt` and `.venv\Scripts\python.exe -m streamlit run app.py` directly. If port 8501 is occupied, add `--server.port 8502`. Restart interrupted processing after ensuring sufficient memory is available.
 
 ## Interpretation limits and next steps
 

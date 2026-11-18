@@ -1,0 +1,36 @@
+{
+  "notebook": "Corrected_Landsat_Change_Detection_Colab.ipynb",
+  "notebook_sha256": "d860788d3fb84a0e880d4287c1bda51f3530ed020dd82fba5de755de9fd34fe0",
+  "dates": [
+    "2015-12-13",
+    "2024-07-30"
+  ],
+  "figures": [
+    "natural_colour_comparison.png",
+    "mle_classification_comparison.png",
+    "mle_comparison_with_numbers.png",
+    "regression_change_comparison.png",
+    "landsat_result_maps_clear.png",
+    "landsat_numerical_summary.png"
+  ],
+  "common_valid_pixels": 632388,
+  "class_counts_common": {
+    "2015": [
+      76157,
+      186559,
+      125269,
+      244403
+    ],
+    "2024": [
+      28204,
+      441014,
+      77354,
+      85816
+    ]
+  },
+  "possible_change_pixels": 33167,
+  "possible_change_percent": 5.244723176277855,
+  "threshold": 3.0084986686706543,
+  "recovered_red_band": "C:\\Users\\saini\\Projects\\AI_and_ML\\Machine_Learning_project\\team_release\\colab_test_data\\LC08_L2SP_146040_20151213_20200908_02_T1_SR_B4.TIF",
+  "footprint_note": "Notebook MLE comparison-with-numbers uses each date individually; final numerical summary uses common valid pixels."
+}

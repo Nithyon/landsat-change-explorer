@@ -1,0 +1,112 @@
+{
+  "dataset": {
+    "folder": "C:\\Users\\saini\\Downloads\\ml datasets -20260920T193242Z-1-001\\ml datasets",
+    "files": 10,
+    "bytes": 767745918,
+    "source_shape": [
+      7681,
+      7531
+    ],
+    "pixels_per_date": 57845611,
+    "crs": "EPSG:32643",
+    "source_resolution_m": 30,
+    "analysis_resolution_m": 150,
+    "analysis_shape": [
+      1537,
+      1507
+    ],
+    "dates": [
+      "2015-12-13",
+      "2024-07-30"
+    ],
+    "recovery_note": "2015 SR_B4 was unreadable in the extracted download; the intact same-named file from the original ZIP archive was used"
+  },
+  "preprocessing": {
+    "scale": 2.75e-05,
+    "offset": -0.2,
+    "qa_exclusions": [
+      "fill",
+      "dilated cloud",
+      "cirrus",
+      "cloud",
+      "cloud shadow",
+      "snow"
+    ],
+    "reference_grid": "2015 SR_B4",
+    "2024_shift_west_m": 2100,
+    "valid_2015_analysis_pixels": 1170649,
+    "valid_2024_analysis_pixels": 810144,
+    "common_valid_analysis_pixels": 632388
+  },
+  "mle": {
+    "status": "Demonstration only: provisional spectral-rule seeds, not ground truth",
+    "features": [
+      "SR_B2",
+      "SR_B3",
+      "SR_B4",
+      "SR_B5"
+    ],
+    "seed_counts": {
+      "Water-like": 116524,
+      "Vegetation-like": 234130,
+      "Bright low-vegetation": 290908,
+      "Bare/other-like": 299024
+    },
+    "class_counts": {
+      "2015": {
+        "Water-like": 118461,
+        "Vegetation-like": 389271,
+        "Bright low-vegetation": 212023,
+        "Bare/other-like": 450894
+      },
+      "2024": {
+        "Water-like": 31400,
+        "Vegetation-like": 587891,
+        "Bright low-vegetation": 87868,
+        "Bare/other-like": 102985
+      }
+    }
+  },
+  "regression": {
+    "training_sample_pixels": 100000,
+    "bands": {
+      "SR_B2": {
+        "slope": 0.5443756580352783,
+        "intercept": 0.020600121468305588,
+        "r2_sample": 0.06737309694290161,
+        "rmse_all": 0.03521711751818657
+      },
+      "SR_B3": {
+        "slope": 0.5516666173934937,
+        "intercept": 0.04724695533514023,
+        "r2_sample": 0.0720105767250061,
+        "rmse_all": 0.03755887970328331
+      },
+      "SR_B4": {
+        "slope": 0.5766207575798035,
+        "intercept": 0.028756380081176758,
+        "r2_sample": 0.11672592163085938,
+        "rmse_all": 0.04637176916003227
+      },
+      "SR_B5": {
+        "slope": 0.31699615716934204,
+        "intercept": 0.28136175870895386,
+        "r2_sample": 0.02558189630508423,
+        "rmse_all": 0.08963877707719803
+      }
+    }
+  },
+  "change_classification": {
+    "status": "Possible spectral change, not verified land-cover change",
+    "method": "robust regression-residual threshold: median + 3 x 1.4826 x MAD",
+    "threshold": 3.008498520863056,
+    "possible_change_pixels": 33167,
+    "unchanged_pixels": 599221,
+    "possible_change_percent": 5.244723176277855
+  },
+  "limitations": [
+    "2015 is December and 2024 is July; seasonal effects can resemble change",
+    "No independent ground-truth labels were supplied, so true accuracy is not reported",
+    "MLE labels are provisional classes created only to demonstrate the required concept"
+  ]
+}

@@ -1,0 +1,20 @@
+[theme]
+base = "light"
+primaryColor = "#2563EB"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F5F7FB"
+textColor = "#1E293B"
+font = "sans-serif"
+baseFontSize = 17
+headingFontSizes = ["34px", "26px", "21px", "18px", "16px", "14px"]
+headingFontWeights = [600, 600, 600, 500, 500, 500]
+baseRadius = "12px"
+buttonRadius = "8px"
+borderColor = "#E2E8F0"
+chartCategoricalColors = ["#2563EB", "#F59E0B", "#10B981", "#EF4444"]
+
+[browser]
+gatherUsageStats = false
+
+[server]
+address = "127.0.0.1"

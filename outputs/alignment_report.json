@@ -1,0 +1,309 @@
+{
+  "2015-12-13": {
+    "SR_B2": {
+      "path": "C:\\Users\\saini\\Downloads\\ml datasets -20260920T193242Z-1-001\\ml datasets\\LC08_L2SP_146040_20151213_20200908_02_T1_SR_B2.TIF",
+      "crs": "EPSG:32643",
+      "transform": [
+        30.0,
+        0.0,
+        671985.0,
+        0.0,
+        -30.0,
+        3311715.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "shape": [
+        7681,
+        7531
+      ],
+      "bounds": [
+        671985.0,
+        3081285.0,
+        897915.0,
+        3311715.0
+      ],
+      "nodata": 0.0,
+      "matches_reference_grid": true,
+      "aligned_to_reference": false
+    },
+    "SR_B3": {
+      "path": "C:\\Users\\saini\\Downloads\\ml datasets -20260920T193242Z-1-001\\ml datasets\\LC08_L2SP_146040_20151213_20200908_02_T1_SR_B3.TIF",
+      "crs": "EPSG:32643",
+      "transform": [
+        30.0,
+        0.0,
+        671985.0,
+        0.0,
+        -30.0,
+        3311715.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "shape": [
+        7681,
+        7531
+      ],
+      "bounds": [
+        671985.0,
+        3081285.0,
+        897915.0,
+        3311715.0
+      ],
+      "nodata": 0.0,
+      "matches_reference_grid": true,
+      "aligned_to_reference": false
+    },
+    "SR_B4": {
+      "path": "C:\\Users\\saini\\Downloads\\ml datasets -20260920T193242Z-1-001\\ml datasets\\LC08_L2SP_146040_20151213_20200908_02_T1_SR_B4.TIF",
+      "crs": "EPSG:32643",
+      "transform": [
+        30.0,
+        0.0,
+        671985.0,
+        0.0,
+        -30.0,
+        3311715.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "shape": [
+        7681,
+        7531
+      ],
+      "bounds": [
+        671985.0,
+        3081285.0,
+        897915.0,
+        3311715.0
+      ],
+      "nodata": 0.0,
+      "matches_reference_grid": true,
+      "aligned_to_reference": false
+    },
+    "SR_B5": {
+      "path": "C:\\Users\\saini\\Downloads\\ml datasets -20260920T193242Z-1-001\\ml datasets\\LC08_L2SP_146040_20151213_20200908_02_T1_SR_B5.TIF",
+      "crs": "EPSG:32643",
+      "transform": [
+        30.0,
+        0.0,
+        671985.0,
+        0.0,
+        -30.0,
+        3311715.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "shape": [
+        7681,
+        7531
+      ],
+      "bounds": [
+        671985.0,
+        3081285.0,
+        897915.0,
+        3311715.0
+      ],
+      "nodata": 0.0,
+      "matches_reference_grid": true,
+      "aligned_to_reference": false
+    },
+    "QA_PIXEL": {
+      "path": "C:\\Users\\saini\\Downloads\\ml datasets -20260920T193242Z-1-001\\ml datasets\\LC08_L2SP_146040_20151213_20200908_02_T1_QA_PIXEL.TIF",
+      "crs": "EPSG:32643",
+      "transform": [
+        30.0,
+        0.0,
+        671985.0,
+        0.0,
+        -30.0,
+        3311715.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "shape": [
+        7681,
+        7531
+      ],
+      "bounds": [
+        671985.0,
+        3081285.0,
+        897915.0,
+        3311715.0
+      ],
+      "nodata": null,
+      "matches_reference_grid": true
+    }
+  },
+  "2024-07-30": {
+    "SR_B2": {
+      "path": "C:\\Users\\saini\\Downloads\\ml datasets -20260920T193242Z-1-001\\ml datasets\\LC08_L2SP_146040_20240730_20240801_02_T1_SR_B2.TIF",
+      "crs": "EPSG:32643",
+      "transform": [
+        30.0,
+        0.0,
+        669885.0,
+        0.0,
+        -30.0,
+        3311715.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "shape": [
+        7681,
+        7531
+      ],
+      "bounds": [
+        669885.0,
+        3081285.0,
+        895815.0,
+        3311715.0
+      ],
+      "nodata": 0.0,
+      "matches_reference_grid": false,
+      "aligned_to_reference": true
+    },
+    "SR_B3": {
+      "path": "C:\\Users\\saini\\Downloads\\ml datasets -20260920T193242Z-1-001\\ml datasets\\LC08_L2SP_146040_20240730_20240801_02_T1_SR_B3.TIF",
+      "crs": "EPSG:32643",
+      "transform": [
+        30.0,
+        0.0,
+        669885.0,
+        0.0,
+        -30.0,
+        3311715.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "shape": [
+        7681,
+        7531
+      ],
+      "bounds": [
+        669885.0,
+        3081285.0,
+        895815.0,
+        3311715.0
+      ],
+      "nodata": 0.0,
+      "matches_reference_grid": false,
+      "aligned_to_reference": true
+    },
+    "SR_B4": {
+      "path": "C:\\Users\\saini\\Downloads\\ml datasets -20260920T193242Z-1-001\\ml datasets\\LC08_L2SP_146040_20240730_20240801_02_T1_SR_B4.TIF",
+      "crs": "EPSG:32643",
+      "transform": [
+        30.0,
+        0.0,
+        669885.0,
+        0.0,
+        -30.0,
+        3311715.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "shape": [
+        7681,
+        7531
+      ],
+      "bounds": [
+        669885.0,
+        3081285.0,
+        895815.0,
+        3311715.0
+      ],
+      "nodata": 0.0,
+      "matches_reference_grid": false,
+      "aligned_to_reference": true
+    },
+    "SR_B5": {
+      "path": "C:\\Users\\saini\\Downloads\\ml datasets -20260920T193242Z-1-001\\ml datasets\\LC08_L2SP_146040_20240730_20240801_02_T1_SR_B5.TIF",
+      "crs": "EPSG:32643",
+      "transform": [
+        30.0,
+        0.0,
+        669885.0,
+        0.0,
+        -30.0,
+        3311715.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "shape": [
+        7681,
+        7531
+      ],
+      "bounds": [
+        669885.0,
+        3081285.0,
+        895815.0,
+        3311715.0
+      ],
+      "nodata": 0.0,
+      "matches_reference_grid": false,
+      "aligned_to_reference": true
+    },
+    "QA_PIXEL": {
+      "path": "C:\\Users\\saini\\Downloads\\ml datasets -20260920T193242Z-1-001\\ml datasets\\LC08_L2SP_146040_20240730_20240801_02_T1_QA_PIXEL.TIF",
+      "crs": "EPSG:32643",
+      "transform": [
+        30.0,
+        0.0,
+        669885.0,
+        0.0,
+        -30.0,
+        3311715.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "shape": [
+        7681,
+        7531
+      ],
+      "bounds": [
+        669885.0,
+        3081285.0,
+        895815.0,
+        3311715.0
+      ],
+      "nodata": null,
+      "matches_reference_grid": false
+    }
+  },
+  "processing": {
+    "scale": 2.75e-05,
+    "offset": -0.2,
+    "excluded_qa_bits": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "alignment": "nearest; 2015 B4 grid and full extent",
+    "common_valid_pixels": 15790703,
+    "total_pixels": 57845611,
+    "display_reflectance_range": [
+      0,
+      0.3
+    ],
+    "display_stride": 5,
+    "rgb_bands": [
+      "SR_B4",
+      "SR_B3",
+      "SR_B2"
+    ]
+  }
+}

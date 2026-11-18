@@ -10,11 +10,10 @@ The scenes are used in a Noida-area demonstration, but they are full satellite s
 
 ## Clone and open the saved results
 
-This repository is private. The owner must invite each teammate as a collaborator before they can clone or download the data. Install GitHub CLI and Python 3.14 (the tested version), then run:
+This repository is public. Install Git and Python 3.14 (the tested version), then run:
 
 ```powershell
-gh auth login
-gh repo clone Nithyon/landsat-change-explorer
+git clone https://github.com/Nithyon/landsat-change-explorer.git
 cd landsat-change-explorer
 python -m venv .venv
 .venv\Scripts\Activate.ps1

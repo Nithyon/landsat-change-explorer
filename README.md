@@ -1,5 +1,34 @@
 # Landsat Change Explorer
 
+## Course assessment extension
+
+The project now includes all supplied topics for **PBL 2 (20 marks)** and **PBL 3 (10 marks)**, together with the existing PBL 1 baseline. Start the app and open **Course demo**. Saved results are bundled so class demonstration does not require retraining.
+
+| Assessment | Implemented methods | Demo evidence |
+| --- | --- | --- |
+| PBL 1 | Existing provisional MLE, linear regression and residual change flags | History views and preserved baseline |
+| PBL 2 | K-means, PCA, Hidden Markov Model, Sum Product Algorithm | Cluster maps, PCA variance, two-date HMM states, interactive exact-inference example |
+| PBL 3 | CART, AdaBoost, random forest and soft voting | Tree rules, boosting progression, ensemble maps, spatial-holdout scores and confusion matrices |
+
+Use [DEMO_GUIDE.md](DEMO_GUIDE.md) for the presentation order and viva questions. The full runnable notebook is [Landsat_PBL_1_2_3.ipynb](Landsat_PBL_1_2_3.ipynb), with actual execution outputs. The original corrected notebook remains available for the PBL 1 workflow. The consolidated submission report is [PDF](reports/Consolidated_Project_Report.pdf), with an [editable Markdown version](reports/Consolidated_Project_Report.md). Fill in student and institution details before submission and confirm that the existing baseline matches the instructor's PBL 1 assignment.
+
+```powershell
+python build_pbl_demo.py
+python -m pip install -r requirements-report.txt
+python build_project_report.py
+python -m unittest discover -s tests -q
+python -m streamlit run app.py
+```
+
+To rerun the notebook, install requirements-notebook.txt and use Jupyter Run All from the repository root. Alternatively, `python execute_pbl_notebook.py` executes this repository's trusted notebook and retains text/image outputs. `python make_pbl_notebook.py` recreates a clean notebook and clears previous outputs.
+
+**Evaluation scope:** there are only two acquisition dates and no independent ground-truth labels. The HMM uses an explicitly assumed 0.90 transition persistence over the entire interval; forward-backward sum-product computes its exact marginals. It does not learn reliable temporal dynamics. Supervised targets are uniquely matched spectral rules using training-area thresholds. Evaluation uses an eastern Before spatial holdout with an eight-column guard strip. Reported agreement and F1 describe these weak labels, not independently measured land-cover accuracy. After predictions are unvalidated transfer maps. Cluster IDs and supervised class IDs are different label systems. PCA is exploratory; it is not claimed to improve classifier accuracy.
+
+**Measured demonstration:** the first two PCs retain about 97.99% of standardized training variance. CART and soft voting agree with 99.97% of held-out rules, random forest 99.96%, and the fixed AdaBoost stump model 66.15%. High rule agreement is expected when models have the same indices that define their target rules; it is not evidence of real-world accuracy. The simple tree can outperform boosting on this task.
+
+Implementation: `pbl_analysis.py` contains algorithms, `build_pbl_demo.py` computes figures and JSON/CSV outputs, `pbl_ui.py` provides the saved demo and interactive example, and `build_project_report.py` produces the consolidated report. Course outputs are separate in `outputs/pbl`; original PBL 1 reports and imagery are preserved. New uploads in New analysis continue to use PBL 1; the course demo explicitly uses the supplied saved scenes. Rebuilding course results overwrites only their generated artifacts.
+
+
 A local satellite-image change-analysis project using **Landsat 8 Collection 2 Level-2** scenes from **13 December 2015** and **30 July 2024**, path/row **146040**. The supplied dataset is Landsat 8 only. The app parser also accepts the corresponding Landsat 9 product naming pattern, but no Landsat 9 data is supplied or verified here.
 
 ## Project aim
@@ -157,3 +186,7 @@ If data is missing, check that the downloaded files and numbered parts are direc
 ## Interpretation limits and next steps
 
 Season, clouds, remaining atmospheric effects, grid alignment, and coarse analysis resolution can influence the comparison. A high residual is not a verified physical change. MLE class names must remain provisional until evaluated using independent labels. No confusion matrix, validated accuracy, causal attribution, or administrative-area estimate is provided. A stronger study would use a defined study boundary, comparable seasons, additional dates, independently labelled validation data, and appropriate accuracy assessment.
+
+## Preserved unit studies
+
+The supplied updated project also includes u12_pipeline.py, u3_clustering_pca.py, u4_hmm.py, u5_ensembles.py, diagrams.py and the original template-based build_report.py. Their original figures and cached JSON results are preserved and available under Course demo ? Existing unit studies. See REPORT_ANALYSIS.md for their separate run order. The Unit 4 HMM is spatial along image rows and learns transitions using Baum?Welch; it is distinct from the main two-date temporal teaching example. These cached extra studies were not retrained during the current integration, and their scores must not be mixed with the new spatial-holdout experiment. The original Word report builder still requires its template; the new consolidated PDF has no template dependency.

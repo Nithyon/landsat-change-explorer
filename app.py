@@ -14,6 +14,7 @@ from matplotlib.patches import Patch
 from landsat_analysis import (AnalysisError, BANDS, CLASS_NAMES, CLASS_COLORS,
                               REQUIRED, analyze)
 from landsat_uploads import upload_catalog, upload_signature, staged_pair
+from pbl_ui import show_course_demo
 
 ROOT = Path(__file__).resolve().parent
 
@@ -216,9 +217,11 @@ def show_history():
 def main():
     st.set_page_config(page_title='Landsat Change Explorer', page_icon=':material/public:', layout='wide')
     st.title('Landsat Change Explorer')
-    upload_view, history_view = st.tabs(['New analysis', 'History'], default='History')
+    upload_view, history_view, course_view = st.tabs(['New analysis', 'History', 'Course demo'], default='History')
     with history_view:
         show_history()
+    with course_view:
+        show_course_demo(ROOT)
     with upload_view:
         with st.container(border=True):
             columns = st.columns(2)

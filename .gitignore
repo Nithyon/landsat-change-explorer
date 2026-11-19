@@ -6,3 +6,4 @@ __pycache__/
 colab_test_data/
 .env
 .env.*
+work/

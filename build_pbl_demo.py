@@ -79,6 +79,8 @@ def save_course_results(data, unsupervised, temporal, supervised, output_dir):
                        color='white' if counts[i,j] > counts.max() * .55 else 'black', fontsize=8)
     fig.colorbar(im, ax=left, shrink=.7)
     save(fig, 'sum_product_transitions.png')
+    from cart_highlight import export_highlighted_cart
+    export_highlighted_cart(supervised['models']['CART'], destination, FEATURES, list(CLASS_NAMES))
     names = list(supervised['predictions'])
     fig = Figure(figsize=(12, 10), layout='constrained')
     cmap = ListedColormap(['#2b83ba', '#1a9850', '#d8b365', '#a6611a'])

@@ -96,9 +96,9 @@
           0.19550226628780365
         ],
         [
-          0.08590540289878845,
-          0.12157013267278671,
-          0.1388719081878662,
+          0.08590538799762726,
+          0.12157014012336731,
+          0.1388719230890274,
           0.21125300228595734
         ]
       ],
@@ -706,6 +706,57 @@
       0.6615,
       0.3385,
       0.6615
+    ],
+    "cart_nodes": [
+      {
+        "Node": 0,
+        "Feature": "NDVI",
+        "Gini index": 0.75,
+        "Split threshold": 0.27714769542217255,
+        "Samples": 16000
+      },
+      {
+        "Node": 1,
+        "Feature": "NDWI",
+        "Gini index": 0.5,
+        "Split threshold": -0.2396542951464653,
+        "Samples": 8000
+      },
+      {
+        "Node": 2,
+        "Feature": "Leaf",
+        "Gini index": 0.0,
+        "Split threshold": null,
+        "Samples": 4000
+      },
+      {
+        "Node": 3,
+        "Feature": "Leaf",
+        "Gini index": 0.0,
+        "Split threshold": null,
+        "Samples": 4000
+      },
+      {
+        "Node": 4,
+        "Feature": "NDVI",
+        "Gini index": 0.5,
+        "Split threshold": 0.538676530122757,
+        "Samples": 8000
+      },
+      {
+        "Node": 5,
+        "Feature": "Leaf",
+        "Gini index": 0.0,
+        "Split threshold": null,
+        "Samples": 4000
+      },
+      {
+        "Node": 6,
+        "Feature": "Leaf",
+        "Gini index": 0.0,
+        "Split threshold": null,
+        "Samples": 4000
+      }
     ],
     "cart_depth": 2,
     "cart_leaves": 4,

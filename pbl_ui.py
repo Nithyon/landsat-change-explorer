@@ -97,7 +97,11 @@ def show_course_demo(root):
                                       'Holdout sample': supervised['sample_class_counts']['holdout']}), hide_index=True, width='stretch')
             st.caption(supervised['note'])
         with tree:
-            image('cart_tree.png', 'First three displayed levels of the CART tree; the full tree is available as text below.')
+            image('cart_tree_highlighted.png' if (folder / 'cart_tree_highlighted.png').is_file() else 'cart_tree.png', 'Bold lines highlight the Gini impurity and split threshold. Gold boxes are decision nodes.')
+            if supervised.get('cart_nodes'):
+                nodes = pd.DataFrame(supervised['cart_nodes'])
+                st.dataframe(nodes.style.format({'Gini index': '{:.3f}', 'Split threshold': '{:.6f}'}, na_rep='Leaf').set_properties(subset=['Gini index'], **{'background-color': '#fff0b3', 'color': '#111111', 'font-weight': 'bold'}).set_properties(subset=['Split threshold'], **{'background-color': '#dbeafe', 'color': '#111111', 'font-weight': 'bold'}), hide_index=True, width='stretch')
+                st.caption('Yellow: Gini impurity (0 means a pure node). Blue: threshold used in the feature <= threshold split. Leaf nodes have no split threshold.')
             st.write(f"Fitted depth: {supervised['cart_depth']} · terminal leaves: {supervised['cart_leaves']}")
             with st.expander('Full decision rules'):
                 st.code((folder / 'cart_rules.txt').read_text(encoding='utf-8'), language='text')

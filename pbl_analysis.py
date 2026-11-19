@@ -257,6 +257,7 @@ def fit_supervised(data, sample_per_class=4000, test_limit=12000):
               'cart_feature_importances': models['CART'].feature_importances_.tolist(),
               'forest_feature_importances': models['Random forest'].feature_importances_.tolist(),
               'adaboost_holdout_agreement_by_round': stages,
+              'cart_nodes': [{'Node': int(i), 'Feature': 'Leaf' if models['CART'].tree_.feature[i] < 0 else FEATURES[models['CART'].tree_.feature[i]], 'Gini index': float(models['CART'].tree_.impurity[i]), 'Split threshold': None if models['CART'].tree_.feature[i] < 0 else float(models['CART'].tree_.threshold[i]), 'Samples': int(models['CART'].tree_.n_node_samples[i])} for i in range(models['CART'].tree_.node_count)],
               'cart_depth': int(models['CART'].get_depth()), 'cart_leaves': int(models['CART'].get_n_leaves()),
               'settings': {'cart_max_depth': 6, 'adaboost_rounds': 80, 'adaboost_learning_rate': .5,
                            'forest_trees': 80, 'forest_max_depth': 10,

@@ -186,7 +186,7 @@ python -m unittest discover -s tests -q
 python -m streamlit run app.py
 ```
 
-Open History to present PBL 1. Open Course demo for K-means, PCA, HMM and sum-product, then show CART, AdaBoost, random forest, soft voting and the spatial holdout. Adjust the example-pixel persistence slider and explain that the saved scene maps do not change. The combined notebook exposes these stages in execution order. Saved figures allow demonstration without retraining during class.
+Open History to present PBL 1. Open Methods for K-means, PCA, HMM and sum-product, then show CART, AdaBoost, random forest, soft voting and the spatial holdout. Adjust the example-pixel persistence slider and explain that the saved scene maps do not change. The combined notebook exposes these stages in execution order. Saved figures allow demonstration without retraining during class.
 
 Verification checks include baseline numerical regression, exact HMM inference versus enumerated paths, normalized marginals, isolation of unsupervised fitting from held-out and After data, disjoint buffered split masks, exclusion of ambiguous weak labels, and app interaction without retraining. Generated figures and the report should be inspected before submission. Cross-platform clean installation and independent ground-truth validation are outside the verified scope.
 

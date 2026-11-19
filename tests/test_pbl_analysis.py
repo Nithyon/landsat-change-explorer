@@ -76,7 +76,7 @@ class CourseInterfaceTests(unittest.TestCase):
         at = AppTest.from_file(str(root / 'app.py')).run(timeout=45)
         self.assertFalse(at.exception)
         labels = [tab.label for tab in at.tabs]
-        for label in ['Course demo', 'K-means clustering', 'PCA', 'Hidden Markov model',
+        for label in ['Methods', 'K-means clustering', 'PCA', 'Hidden Markov model',
                       'Sum-product walkthrough', 'CART decision rules']:
             self.assertIn(label, labels)
         self.assertTrue(any('course_results.json' in button.label for button in at.get('download_button')))

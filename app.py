@@ -217,7 +217,7 @@ def show_history():
 def main():
     st.set_page_config(page_title='Landsat Change Explorer', page_icon=':material/public:', layout='wide')
     st.title('Landsat Change Explorer')
-    upload_view, history_view, course_view = st.tabs(['New analysis', 'History', 'Course demo'], default='History')
+    upload_view, history_view, course_view = st.tabs(['New analysis', 'History', 'Methods'], default='History')
     with history_view:
         show_history()
     with course_view:

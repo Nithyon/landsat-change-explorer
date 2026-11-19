@@ -2,7 +2,7 @@
 
 ## Course assessment extension
 
-The project now includes all supplied topics for **PBL 2 (20 marks)** and **PBL 3 (10 marks)**, together with the existing PBL 1 baseline. Start the app and open **Course demo**. Saved results are bundled so class demonstration does not require retraining.
+The project now includes all supplied topics for **PBL 2 (20 marks)** and **PBL 3 (10 marks)**, together with the existing PBL 1 baseline. Start the app and open **Methods**. Saved results are bundled so class demonstration does not require retraining.
 
 | Assessment | Implemented methods | Demo evidence |
 | --- | --- | --- |
@@ -189,4 +189,4 @@ Season, clouds, remaining atmospheric effects, grid alignment, and coarse analys
 
 ## Preserved unit studies
 
-The supplied updated project also includes u12_pipeline.py, u3_clustering_pca.py, u4_hmm.py, u5_ensembles.py, diagrams.py and the original template-based build_report.py. Their original figures and cached JSON results are preserved and available under Course demo ? Existing unit studies. See REPORT_ANALYSIS.md for their separate run order. The Unit 4 HMM is spatial along image rows and learns transitions using Baum?Welch; it is distinct from the main two-date temporal teaching example. These cached extra studies were not retrained during the current integration, and their scores must not be mixed with the new spatial-holdout experiment. The original Word report builder still requires its template; the new consolidated PDF has no template dependency.
+The supplied updated project also includes u12_pipeline.py, u3_clustering_pca.py, u4_hmm.py, u5_ensembles.py, diagrams.py and the original template-based build_report.py. Their original figures and cached JSON results are preserved and available under Methods ? Additional analyses. See REPORT_ANALYSIS.md for their separate run order. The Unit 4 HMM is spatial along image rows and learns transitions using Baum?Welch; it is distinct from the main two-date temporal teaching example. These cached extra studies were not retrained during the current integration, and their scores must not be mixed with the new spatial-holdout experiment. The original Word report builder still requires its template; the new consolidated PDF has no template dependency.

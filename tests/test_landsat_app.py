@@ -212,7 +212,7 @@ class SessionTests(unittest.TestCase):
             at.button[0].click().run(timeout=30)
             self.assertFalse(at.exception)
             self.assertEqual(mocked.call_count, 1)
-            self.assertIn('Course demo', [tab.label for tab in at.tabs])
+            self.assertIn('Methods', [tab.label for tab in at.tabs])
             self.assertEqual(at.metric[2].value, '20.00%')
             at.run(timeout=30)
             self.assertEqual(mocked.call_count, 1)

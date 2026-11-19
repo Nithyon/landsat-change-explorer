@@ -11,26 +11,26 @@ def show_course_demo(root):
     root = Path(root)
     folder = root / 'outputs' / 'pbl'
     summary = folder / 'course_results.json'
-    st.subheader('PBL 1, PBL 2 and PBL 3 demonstration')
-    st.caption('Saved results use the supplied Landsat 8 scenes. New uploads in New analysis use the original PBL 1 pipeline.')
+    st.subheader('Landsat analysis methods')
+    st.caption('Saved results use the supplied Landsat 8 scenes. New uploads in New analysis use the original MLE and regression pipeline.')
     if not summary.is_file():
         st.info('Build the course results first: python build_pbl_demo.py')
         return
     report = json.loads(summary.read_text(encoding='utf-8'))
     st.info('The class labels are provisional spectral rules. Model scores measure agreement with those rules; independent land-cover accuracy is unavailable.')
-    labels = ['PBL 1 baseline', 'PBL 2 · 20 marks', 'PBL 3 · 10 marks', 'Demo guide and report']
+    labels = ['MLE and regression', 'Clustering and state inference', 'Trees and ensembles', 'Guide and report']
     supplied_results = root / 'outputs' / 'report_results'
     has_supplied = supplied_results.is_dir()
-    views = st.tabs(labels + (['Existing unit studies'] if has_supplied else []))
+    views = st.tabs(labels + (['Additional analyses'] if has_supplied else []))
     pbl1, pbl2, pbl3, guide = views[:4]
     def image(name, caption):
         path = folder / name
         if path.is_file():
             st.image(str(path), caption=caption, width='stretch')
     with pbl1:
-        st.markdown('**Existing baseline:** quality masking, geographic alignment, provisional MLE classification, band-wise linear regression and robust residual change flags.')
+        st.markdown('**MLE and regression:** quality masking, geographic alignment, provisional MLE classification, band-wise linear regression and robust residual change flags.')
         st.write('Open History for the original satellite images, MLE maps, regression details and the 5.24% possible spectral-change result.')
-        st.caption('The formal PBL 1 assignment wording was not supplied. The consolidated report maps PBL 1 to the existing project; confirm that mapping with your instructor.')
+        st.caption('The consolidated report explains the dataset, methods, measured results and interpretation limits.')
     with pbl2:
         clustering, pca, hmm, messages = st.tabs(['K-means clustering', 'PCA', 'Hidden Markov model', 'Sum-product walkthrough'])
         unsupervised = report['pbl2']['unsupervised']
@@ -112,8 +112,8 @@ def show_course_demo(root):
                 st.download_button('Download ' + path.name, path.read_bytes(), path.name, key='pbl_download_' + path.name)
     if has_supplied:
         with views[4]:
-            st.caption('Additional cached analyses from the supplied updated project. These experiments use their own sampling and evaluation designs and were not retrained as part of the main course-demo verification.')
-            units = st.tabs(['Units 1–2', 'Unit 3', 'Unit 4 spatial HMM', 'Unit 5 ensembles'])
+            st.caption('Additional experiments explore the same Landsat imagery using the methods below. Their training and evaluation designs differ from the main comparisons.')
+            units = st.tabs(['Data exploration and regression', 'Clustering and PCA', 'Spatial HMM', 'Ensemble regression'])
             figures = root / 'outputs' / 'report_figures'
             entries = [
                 ('u12_results.json', ['eda_histograms.png', 'eda_correlation.png', 'eda_ndvi.png', 'u1_poly_degree.png']),
@@ -123,7 +123,7 @@ def show_course_demo(root):
             for index, (view, (filename, names)) in enumerate(zip(units, entries)):
                 with view:
                     if index == 2:
-                        st.info('This HMM learns transitions between adjacent pixels along image-row transects using Baum–Welch, then decodes spatial paths with Viterbi. It is a spatial model, distinct from the two-date temporal HMM in the main PBL 2 demo. Spatial transition probabilities must not be described as probabilities between years.')
+                        st.info('This HMM learns transitions between adjacent pixels along image-row transects using Baum–Welch, then decodes spatial paths with Viterbi. It is a spatial model, distinct from the two-date temporal HMM in the two-date HMM demonstration. Spatial transition probabilities must not be described as probabilities between years.')
                     for name in names:
                         if (figures / name).is_file():
                             st.image(str(figures / name), caption=name.replace('_', ' ').replace('.png', ''), width='stretch')

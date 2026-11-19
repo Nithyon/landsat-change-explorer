@@ -18,11 +18,11 @@ def show_course_demo(root):
         return
     report = json.loads(summary.read_text(encoding='utf-8'))
     st.info('The class labels are provisional spectral rules. Model scores measure agreement with those rules; independent land-cover accuracy is unavailable.')
-    labels = ['MLE and regression', 'Clustering and state inference', 'Trees and ensembles', 'Guide and report']
+    labels = ['MLE and regression', 'Clustering and state inference', 'Trees and ensembles']
     supplied_results = root / 'outputs' / 'report_results'
     has_supplied = supplied_results.is_dir()
     views = st.tabs(labels + (['Additional analyses'] if has_supplied else []))
-    pbl1, pbl2, pbl3, guide = views[:4]
+    pbl1, pbl2, pbl3 = views[:3]
     def image(name, caption):
         path = folder / name
         if path.is_file():
@@ -101,17 +101,8 @@ def show_course_demo(root):
             st.write(f"Fitted depth: {supervised['cart_depth']} · terminal leaves: {supervised['cart_leaves']}")
             with st.expander('Full decision rules'):
                 st.code((folder / 'cart_rules.txt').read_text(encoding='utf-8'), language='text')
-    with guide:
-        guide_path = root / 'DEMO_GUIDE.md'
-        if guide_path.is_file():
-            st.markdown(guide_path.read_text(encoding='utf-8'))
-        for path in [root / 'reports' / 'Consolidated_Project_Report.pdf',
-                     root / 'reports' / 'Consolidated_Project_Report.md',
-                     root / 'Landsat_PBL_1_2_3.ipynb', summary, folder / 'model_comparison.csv']:
-            if path.is_file():
-                st.download_button('Download ' + path.name, path.read_bytes(), path.name, key='pbl_download_' + path.name)
     if has_supplied:
-        with views[4]:
+        with views[3]:
             st.caption('Additional experiments explore the same Landsat imagery using the methods below. Their training and evaluation designs differ from the main comparisons.')
             units = st.tabs(['Data exploration and regression', 'Clustering and PCA', 'Spatial HMM', 'Ensemble regression'])
             figures = root / 'outputs' / 'report_figures'

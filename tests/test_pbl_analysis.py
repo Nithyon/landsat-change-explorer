@@ -79,7 +79,7 @@ class CourseInterfaceTests(unittest.TestCase):
         for label in ['Methods', 'K-means clustering', 'PCA', 'Hidden Markov model',
                       'Sum-product walkthrough', 'CART decision rules']:
             self.assertIn(label, labels)
-        self.assertTrue(any('course_results.json' in button.label for button in at.get('download_button')))
+        self.assertNotIn('Guide and report', labels)
 
     def test_persistence_slider_changes_only_example_without_training(self):
         from streamlit.testing.v1 import AppTest
